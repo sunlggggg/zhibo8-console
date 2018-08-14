@@ -1,0 +1,27 @@
+{
+  "name": "zhibo8-console",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunlggggg/zhibo8-console.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunlggggg/zhibo8-console/issues"
+  },
+  "homepage": "https://github.com/sunlggggg/zhibo8-console#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "promise": "^8.0.1",
+    "readline-sync": "^1.4.9",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+    "sync-request": "^6.0.0"
+  }
+}
