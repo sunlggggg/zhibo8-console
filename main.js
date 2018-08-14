@@ -25,6 +25,14 @@ function readSyncByfs(tips) {
     return response[0].trim();
 }
 
+function showInfo(strJosn) {
+    jObject = JSON.parse(strJosn)
+    for(var i = 0 ; i < 2 ; i++ ) {
+        console.log(jObject[i].live_text + "\t" + jObject[i].live_time + "\t <=" + jObject[i]. user_chn)
+        console.log(jObject[i].period_score)
+    }
+}
+
 main = async ()=>{
     //'https://dingshi4pc.qiumibao.com/livetext/data/cache/livetext/130522/0/lit_page_2/'
     url = readlineSync.question('请输入主url ');
@@ -33,7 +41,7 @@ main = async ()=>{
         // var favFood = readlineSync.question('What is your favorite food? ', {
         //   hideEchoBack: true // The typed text on screen is hidden by `*` (default).
         // });
-        i = readlineSync.question('请输入大概的文件id（0-1000）');
+        var i = readlineSync.question('请输入大概的文件id（0-1000）');
         i = parseInt(i) ; 
         urlNow = url+i+".htm"
         var res = syncrequest('GET', urlNow);
@@ -46,14 +54,14 @@ main = async ()=>{
         if(flag === 'n'){
                 while(true){
                     urlNow = url + i + ".htm"
+                    console.log(i)
                     console.log(urlNow)
-                    request(urlNow, function (error, response, body) {
-                        if (!error && response.statusCode == 200) {
-                            console.log(JSON.parse(body))
-                        }
-                    })
+                    var res = syncrequest('GET', urlNow);
+                    if (res.statusCode == 200 ){
+                        showInfo(res.getBody())
+                        i+=2
+                    }
                     await sleep(2000)
-                    i+=2
                 }
             }
         }
