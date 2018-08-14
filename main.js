@@ -3,6 +3,7 @@ var syncrequest = require('sync-request');
 var readlineSync = require('readline-sync');
 var rp = require('request-promise');
 
+const ISDUG = true 
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
@@ -27,9 +28,15 @@ function readSyncByfs(tips) {
 
 function showInfo(strJosn) {
     jObject = JSON.parse(strJosn)
-    for(var i = 0 ; i < 2 ; i++ ) {
-        console.log(jObject[i].live_text + "\t" + jObject[i].live_time + "\t <=" + jObject[i]. user_chn)
-        console.log(jObject[i].period_score)
+    try{
+        for(var i = 0 ; i < 2 ; i++ ) {
+            console.log(jObject[i].live_text + "\t" + jObject[i].live_time + "\t <=" + jObject[i]. user_chn)
+            console.log(jObject[i].period_score)
+        }
+    }catch(e){
+        if(ISDUG){
+            console.log(e)
+        }
     }
 }
 
@@ -54,8 +61,10 @@ main = async ()=>{
         if(flag === 'n'){
                 while(true){
                     urlNow = url + i + ".htm"
-                    console.log(i)
-                    console.log(urlNow)
+                    if(ISDUG){
+                        console.log(i)
+                        console.log(urlNow)
+                    }
                     var res = syncrequest('GET', urlNow);
                     if (res.statusCode == 200 ){
                         showInfo(res.getBody())
