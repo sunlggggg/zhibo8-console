@@ -3,11 +3,11 @@ var syncrequest = require('sync-request');
 var readlineSync = require('readline-sync');
 var rp = require('request-promise');
 
+var ISDUG  
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
-
 function readSyncByfs(tips) {
     let response;
 
@@ -34,7 +34,6 @@ function showInfo(strJosn) {
 }
 
 main = async () => {
-    var ISDUG  
     //'https://dingshi4pc.qiumibao.com/livetext/data/cache/livetext/130522/0/lit_page_2/'
     ISDUG = readlineSync.question('是否进入debug模式 y/n')
     if (ISDUG === 'n') {
