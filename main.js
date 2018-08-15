@@ -34,7 +34,7 @@ function showInfo(strJosn) {
 }
 
 main = async () => {
-    const ISDUG  
+    var ISDUG  
     //'https://dingshi4pc.qiumibao.com/livetext/data/cache/livetext/130522/0/lit_page_2/'
     ISDUG = readlineSync.question('是否进入debug模式 y/n')
     if (ISDUG === 'n') {
