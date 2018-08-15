@@ -3,17 +3,10 @@ var syncrequest = require('sync-request');
 var readlineSync = require('readline-sync');
 var rp = require('request-promise');
 
-const ISDUG = true 
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
-timefalg = {
-    bigger :"bigger",
-    litter: "litter"
-}
-
-
 
 function readSyncByfs(tips) {
     let response;
@@ -40,8 +33,15 @@ function showInfo(strJosn) {
     }
 }
 
-main = async ()=>{
+main = async () => {
+    const ISDUG  
     //'https://dingshi4pc.qiumibao.com/livetext/data/cache/livetext/130522/0/lit_page_2/'
+    ISDUG = readlineSync.question('是否进入debug模式 y/n')
+    if (ISDUG === 'n') {
+        ISDUG = false 
+    }else {
+        ISDUG = true
+    }
     url = readlineSync.question('请输入主url ');
     console.log(url)
     while(true){
